@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta Comercial — Cotecna × Xperts Consulting 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B6E;
+    --blue: #1A2FA0;
+    --blue-light: #E6FBF5;
+    --blue-mid: #7BE8CF;
+    --accent: #00C896;
+    --accent-light: #E6FBF5;
+    --green: #00C896;
+    --green-light: #E6FBF5;
+    --green-mid: #7BE8CF;
+    --dark: #050D1A;
+    --text: #1a2940;
+    --text-muted: #5a7089;
+    --bg: #F4FBFA;
+    --white: #ffffff;
+    --border: #C8F0E8;
+    --success: #009970;
+    --success-bg: #E6FBF5;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,27,110,0.97); backdrop-filter: blur(12px);
+    padding: 0 2rem; height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+  .nav-logo { font-size: 14px; font-weight: 600; color: #fff; letter-spacing: 1.5px; }
+  .nav-sep { color: rgba(255,255,255,0.3); }
+  .nav-sub { font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 400; }
+  .nav-links { display: flex; gap: 6px; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7); font-size: 13px; text-decoration: none;
+    padding: 6px 14px; border-radius: 6px; transition: all 0.2s;
+  }
+  .nav-links a:hover { background: rgba(255,255,255,0.12); color: #fff; }
+  @media(max-width:680px){ .nav-links { display: none; } }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; background: var(--navy);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 100px 2rem 60px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,200,150,0.2) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: -80px; left: -60px;
+    width: 350px; height: 350px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,200,150,0.1) 0%, transparent 70%);
+  }
+  .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,200,150,0.1); border: 1px solid rgba(0,200,150,0.4);
+    color: var(--accent); font-size: 12px; font-weight: 500; letter-spacing: 1px;
+    padding: 6px 16px; border-radius: 100px; text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 400; color: #fff; line-height: 1.15; margin-bottom: 1.5rem;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-desc { font-size: 17px; color: rgba(255,255,255,0.72); max-width: 640px; line-height: 1.75; margin-bottom: 2.5rem; }
+  .hero-meta { display: flex; gap: 12px; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .hero-chip {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(0,200,150,0.25);
+    color: rgba(255,255,255,0.8); font-size: 13px; padding: 6px 16px; border-radius: 100px;
+  }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent); color: #050D1A; font-size: 15px; font-weight: 600;
+    padding: 14px 28px; border-radius: 10px; text-decoration: none; display: inline-flex;
+    align-items: center; gap: 8px; transition: all 0.2s; border: none; cursor: pointer;
+  }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent; color: rgba(255,255,255,0.8); font-size: 15px; font-weight: 500;
+    padding: 14px 28px; border-radius: 10px; text-decoration: none; display: inline-flex;
+    align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.25); transition: all 0.2s;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.08); color: #fff; }
+
+  .hero-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 3.5rem; }
+  .hero-card {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px; padding: 1.25rem 1.4rem;
+  }
+  .hero-card .icon { font-size: 22px; margin-bottom: 10px; }
+  .hero-card h4 { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+  .hero-card p { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+  .hero-phase {
+    margin-top: 2rem; padding: 1rem 1.4rem;
+    background: rgba(0,200,150,0.1); border: 1px solid rgba(0,200,150,0.25);
+    border-radius: 12px; color: rgba(255,255,255,0.8); font-size: 13px; line-height: 1.7;
+  }
+  .hero-phase strong { color: var(--accent); }
+
+  /* SECTION WRAPPER */
+  section { padding: 80px 2rem; }
+  .container { max-width: 960px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px;
+  }
+  .section-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--blue); }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 400; color: var(--dark); margin-bottom: 1rem; }
+  .section-desc { font-size: 16px; color: var(--text-muted); max-width: 620px; line-height: 1.75; margin-bottom: 3rem; }
+
+  /* ALTERNATING BG */
+  .bg-white { background: var(--white); }
+  .bg-gray { background: var(--bg); }
+  .bg-navy { background: var(--navy); }
+
+  /* DIAGNOSTICO */
+  .diag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media(max-width:680px){ .diag-grid { grid-template-columns: 1fr; } }
+  .diag-col h3 { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--border); }
+  .diag-col.problems h3 { border-color: #00C896; }
+  .diag-col.solutions .diag-item { border-left: 2px solid var(--green); padding-left: 10px; }
+  .diag-col.solutions h3 { border-color: var(--green); color: var(--green); }
+  .diag-item { display: flex; gap: 12px; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+  .diag-item:last-child { border-bottom: none; }
+  .diag-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .diag-item h4 { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+  .diag-item p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+  /* MODULOS */
+  .modulos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .modulo-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+    overflow: hidden; transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .modulo-card:hover { box-shadow: 0 8px 30px rgba(0,59,113,0.1); transform: translateY(-2px); }
+  .modulo-header { padding: 1.2rem 1.4rem; background: var(--navy); }
+  .modulo-header .num {
+    width: 30px; height: 30px; border-radius: 50%; background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 10px;
+  }
+  .modulo-header h3 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+  .modulo-tag {
+    display: inline-block; background: rgba(0,200,150,0.15); color: var(--accent);
+    font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 100px;
+    border: 1px solid rgba(0,200,150,0.4); text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .modulo-tag.alt { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.2); }
+  .modulo-body { padding: 1.25rem 1.4rem; }
+  .modulo-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem; }
+  .modulo-relevancia {
+    background: var(--green-light); border-left: 3px solid var(--green);
+    padding: 0.75rem 1rem; border-radius: 0 8px 8px 0; margin-bottom: 1rem;
+    font-size: 12px; color: #006650; line-height: 1.5;
+  }
+  .modulo-relevancia strong { font-weight: 600; }
+  .feat-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .feat {
+    background: var(--blue-light); color: #0D1B6E; font-size: 12px;
+    padding: 4px 10px; border-radius: 6px; border: 1px solid var(--blue-mid);
+  }
+
+  /* STATS */
+  .stats-section { background: var(--navy); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  @media(max-width:640px){ .stats-grid { grid-template-columns: repeat(2,1fr); } }
+  .stat-box { text-align: center; padding: 1.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); }
+  .stat-box .num { font-size: 2rem; font-weight: 700; color: var(--accent); line-height: 1; }
+  .stat-box.green .num { color: var(--green); }
+  .stat-box .lbl { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 6px; line-height: 1.4; }
+
+  /* CASOS */
+  .casos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
+  .caso-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: 14px;
+    padding: 1.25rem 1.4rem;
+  }
+  .caso-card .co { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
+  .caso-card .seg { display: inline-block; background: var(--accent-light); color: #006650; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+  .caso-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+  .caso-card .detail { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+  .detail-chip { font-size: 11px; background: var(--blue-light); color: #0D1B6E; padding: 3px 8px; border-radius: 4px; }
+
+  /* PORQUE */
+  .porque-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .porque-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem; }
+  .porque-card .icon { font-size: 24px; margin-bottom: 12px; }
+  .porque-card h4 { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
+  .porque-card p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+
+  /* ROADMAP */
+  .roadmap { display: flex; gap: 0; flex-wrap: wrap; }
+  .fase {
+    flex: 1; min-width: 200px;
+    background: var(--white); border: 1px solid var(--border);
+    padding: 1.5rem 1.4rem; position: relative;
+  }
+  .fase:first-child { border-radius: 14px 0 0 14px; }
+  .fase:last-child { border-radius: 0 14px 14px 0; }
+  .fase + .fase { border-left: none; }
+  @media(max-width:580px){ .fase { border-radius: 14px !important; border: 1px solid var(--border) !important; } }
+  .fase-num { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
+  .fase h4 { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+  .fase-dur { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; }
+  .fase ul { list-style: none; }
+  .fase ul li { font-size: 13px; color: var(--text-muted); padding: 3px 0; padding-left: 16px; position: relative; }
+  .fase ul li::before { content: '→'; position: absolute; left: 0; color: var(--blue); font-size: 11px; }
+  .fase-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: #050D1A; font-size: 11px; font-weight: 700;
+    padding: 3px 14px; border-radius: 100px; white-space: nowrap;
+  }
+
+  /* BENEFICIOS */
+  .benef-list { display: flex; flex-direction: column; gap: 20px; }
+  .benef-item { display: flex; gap: 20px; align-items: flex-start; }
+  .benef-num {
+    width: 40px; height: 40px; border-radius: 50%; background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent); font-size: 15px; font-weight: 700; flex-shrink: 0;
+  }
+  .benef-item h4 { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+  .benef-item p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+  /* CTA */
+  .cta-section { background: var(--navy); }
+  .cta-box {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px; padding: 3rem; text-align: center; max-width: 700px; margin: 0 auto;
+  }
+  .cta-box h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; font-weight: 400; color: #fff; margin-bottom: 1rem; }
+  .cta-box p { font-size: 16px; color: rgba(255,255,255,0.65); margin-bottom: 2rem; line-height: 1.7; }
+  .cta-contact { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem; }
+  .contact-item { color: rgba(255,255,255,0.7); font-size: 13px; }
+  .contact-item strong { color: #fff; display: block; font-size: 14px; margin-bottom: 2px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); padding: 1.5rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; color: rgba(255,255,255,0.4); flex-wrap: wrap; gap: 8px;
+  }
+  .footer-brand { font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 0.5px; }
+
+  /* DIVIDER */
+  hr.section-div { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  /* PDF DOWNLOAD */
+  .pdf-btn {
+    position: fixed; bottom: 24px; right: 24px; z-index: 200;
+    background: var(--green); color: #fff; font-size: 14px; font-weight: 600;
+    padding: 12px 22px; border-radius: 50px; border: none; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 4px 20px rgba(0,200,150,0.35);
+    transition: all 0.2s; text-decoration: none;
+  }
+  .pdf-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(0,200,150,0.45); background: #00a87e; }
+  @media print {
+    nav, .pdf-btn { display: none !important; }
+    body { background: #fff; }
+    .hero { min-height: auto; page-break-after: always; }
+    section { page-break-inside: avoid; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <span class="nav-logo">COT<span style="color:#00C896;">E</span>CN<span style="color:#00C896;">A</span></span>
+    <span class="nav-sep">×</span>
+    <span class="nav-logo" style="font-weight:400; letter-spacing:0.5px;">Xperts Consulting</span>
+    <span class="nav-sep" style="opacity:0.3;">·</span>
+    <span class="nav-sub">Propuesta Comercial 2026</span>
+  </div>
+  <div class="nav-links">
+    <a href="#diagnostico">Diagnóstico</a>
+    <a href="#soluciones">Soluciones</a>
+    <a href="#modulos">Módulos</a>
+    <a href="#casos">Casos</a>
+    <a href="#cta">Contacto</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">✦ Propuesta exclusiva · Cotecna Argentina · 2026</div>
+    <h1>Transformación digital para<br><span>Inspección, Certificación</span><br>y Operaciones Globales</h1>
+    <p class="hero-desc">Una propuesta diseñada específicamente para digitalizar y optimizar los procesos operativos, financieros y de gestión documental de Cotecna en Argentina y LATAM, con herramientas TOTVS líderes en la región.</p>
+    <div class="hero-meta">
+      <span class="hero-chip">🌎 Operaciones LATAM</span>
+      <span class="hero-chip">🔬 Inspección & Certificación</span>
+      <span class="hero-chip">☁️ 100% Cloud</span>
+      <span class="hero-chip">🇦🇷 +23 años en Argentina</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#soluciones" class="btn-primary">Ver propuesta detallada ↓</a>
+      <a href="#cta" class="btn-ghost">Agendar reunión</a>
+    </div>
+    <div class="hero-cards">
+      <div class="hero-card">
+        <div class="icon">🏢</div>
+        <h4>ERP Protheus</h4>
+        <p>Backoffice integral multi-empresa y multi-moneda para todas las filiales</p>
+      </div>
+      <div class="hero-card">
+        <div class="icon">⚙️</div>
+        <h4>TOTVS Fluig</h4>
+        <p>Digitalización BPM de órdenes de inspección, certificados y aprobaciones</p>
+      </div>
+      <div class="hero-card">
+        <div class="icon">🔗</div>
+        <h4>Portal Clientes & Proveedores</h4>
+        <p>Solicitud de servicios, estado de certificados y gestión documental online</p>
+      </div>
+      <div class="hero-card">
+        <div class="icon">📊</div>
+        <h4>Analytics by GoodData</h4>
+        <p>KPIs de rentabilidad, volumen de inspecciones y SLAs en tiempo real</p>
+      </div>
+    </div>
+    <div class="hero-phase">
+      <strong>IMPLEMENTACIÓN SUGERIDA — tiempos a relevar en diagnóstico</strong><br>
+      Fase 1 (~6 meses): ERP Protheus Core &nbsp;|&nbsp; Fase 2 (~3 meses): TOTVS Fluig &nbsp;|&nbsp; Fase 3: Portal &amp; Analytics
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSTICO -->
+<section class="bg-white" id="diagnostico">
+  <div class="container">
+    <div class="section-eyebrow">Análisis situacional</div>
+    <h2 class="section-title">Los desafíos actuales de Cotecna</h2>
+    <p class="section-desc">Basándonos en el conocimiento del sector de inspección y certificación global y la operación de Cotecna, identificamos los principales puntos de dolor que esta propuesta viene a resolver.</p>
+    <div class="diag-grid">
+      <div class="diag-col problems">
+        <h3>⚠ Problemas identificados hoy</h3>
+        <div class="diag-item">
+          <div class="diag-icon">🌐</div>
+          <div>
+            <h4>Coordinación multi-país sin visibilidad unificada</h4>
+            <p>Operaciones en Argentina, Chile, Colombia, México y otros países de LATAM gestionadas en sistemas desconectados, sin dashboard regional en tiempo real.</p>
+          </div>
+        </div>
+        <div class="diag-item">
+          <div class="diag-icon">📋</div>
+          <div>
+            <h4>Trazabilidad de inspecciones y certificados</h4>
+            <p>Gestión de órdenes de servicio, muestras y resultados de inspección de forma descentralizada, con alta dependencia de correos electrónicos y documentos en papel.</p>
+          </div>
+        </div>
+        <div class="diag-item">
+          <div class="diag-icon">🤝</div>
+          <div>
+            <h4>Gestión de laboratorios y socios locales</h4>
+            <p>Múltiples laboratorios partner y socios locales sin portal unificado de comunicación, carga de resultados y seguimiento de tareas.</p>
+          </div>
+        </div>
+        <div class="diag-item">
+          <div class="diag-icon">💰</div>
+          <div>
+            <h4>Visibilidad financiera por unidad de negocio</h4>
+            <p>Facturación, tesorería y análisis de rentabilidad por sector (Agricultura, Minerales, Alimentos, Certificación) sin integración en tiempo real.</p>
+          </div>
+        </div>
+        <div class="diag-item">
+          <div class="diag-icon">👷</div>
+          <div>
+            <h4>Gestión de inspectores en campo</h4>
+            <p>Personal técnico en terreno sin herramientas móviles para registrar actividades, reportar resultados ni gestionar agendas de visitas en tiempo real.</p>
+          </div>
+        </div>
+      </div>
+      <div class="diag-col solutions">
+        <h3>✓ Cómo lo resuelve TOTVS</h3>
+        <div class="diag-item">
+          <div class="diag-icon">🏢</div>
+          <div>
+            <h4>ERP Protheus multi-empresa</h4>
+            <p>Una única plataforma para todas las filiales LATAM, con consolidación financiera automática y reporting regional en tiempo real.</p>
+          </div>
+        </div>
+        <div class="diag-item">
+          <div class="diag-icon">⚙️</div>
+          <div>
+            <h4>TOTVS Fluig — BPM digitalizado</h4>
+            <p>Flujos digitales de emisión, revisión y aprobación de informes de inspección y certificados. Fin del papeleo y los correos dispersos.</p>
+          </div>
+        </div>
+        <div class="diag-item">
+          <div class="diag-icon">🔗</div>
+          <div>
+            <h4>Portal de proveedores y laboratorios</h4>
+            <p>Portal self-service donde los socios cargan resultados, gestionan documentación y coordinan agendas con Cotecna directamente.</p>
+          </div>
+        </div>
+        <div class="diag-item">
+          <div class="diag-icon">📊</div>
+          <div>
+            <h4>Analytics — rentabilidad en tiempo real</h4>
+            <p>Dashboards ejecutivos por segmento y geografía. KPIs de facturación, costos operativos y SLAs disponibles en cualquier dispositivo.</p>
+          </div>
+        </div>
+        <div class="diag-item">
+          <div class="diag-icon">📱</div>
+          <div>
+            <h4>App móvil para equipos en terreno</h4>
+            <p>Los inspectores gestionan órdenes, reportan resultados y registran actividades desde el celular, con o sin conectividad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-div">
+
+<!-- SOLUCIONES -->
+<section class="bg-gray" id="soluciones">
+  <div class="container">
+    <div class="section-eyebrow">Propuesta específica</div>
+    <h2 class="section-title">Soluciones diseñadas para Cotecna</h2>
+    <p class="section-desc">Basándonos en el conocimiento que tenemos de otras empresas del sector de inspección y certificación, armamos esta propuesta como punto de partida. Los procesos específicos de Cotecna Argentina son a relevar en el diagnóstico inicial.</p>
+    <div class="modulos-grid" id="modulos">
+
+      <div class="modulo-card">
+        <div class="modulo-header">
+          <div class="num">1</div>
+          <h3>ERP Protheus — Backoffice integral</h3>
+          <span class="modulo-tag">Core · Fase 1</span>
+        </div>
+        <div class="modulo-body">
+          <p class="modulo-desc">Columna vertebral de la operación. Centraliza finanzas, compras, inventario y facturación de todas las filiales de Cotecna en una sola plataforma, con soporte nativo multi-moneda, multi-empresa y multi-país.</p>
+          <div class="modulo-relevancia">
+            <strong>Relevancia Cotecna:</strong> Ideal para consolidar la operación de Argentina, Chile, Colombia y México en un solo sistema, con reporting regional automático y cumplimiento fiscal local en cada país.
+          </div>
+          <div class="feat-list">
+            <span class="feat">Contabilidad & Fiscal</span>
+            <span class="feat">Tesorería multi-moneda</span>
+            <span class="feat">Compras & Importación</span>
+            <span class="feat">Stock de insumos</span>
+            <span class="feat">Facturación electrónica</span>
+            <span class="feat">Multi-empresa LATAM</span>
+            <span class="feat">Control presupuestario</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modulo-card">
+        <div class="modulo-header">
+          <div class="num">2</div>
+          <h3>TOTVS Fluig — Digitalización de procesos</h3>
+          <span class="modulo-tag">Alto impacto · Fase 1</span>
+        </div>
+        <div class="modulo-body">
+          <p class="modulo-desc">Plataforma BPM/ECM que digitaliza todos los flujos de trabajo de Cotecna: emisión de órdenes de inspección, revisión y aprobación de informes, gestión documental de certificados y procesos de auditoría interna.</p>
+          <div class="modulo-relevancia">
+            <strong>Relevancia Cotecna:</strong> El proceso desde que un cliente solicita una inspección hasta que recibe el certificado puede digitalizarse completamente. Elimina el papel, los correos y los tiempos de espera.
+          </div>
+          <div class="feat-list">
+            <span class="feat">Flujos de aprobación</span>
+            <span class="feat">Gestión documental</span>
+            <span class="feat">Portal web & mobile</span>
+            <span class="feat">Formularios digitales</span>
+            <span class="feat">Automatización BPM</span>
+            <span class="feat">Firma electrónica</span>
+            <span class="feat">Integración ERP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modulo-card">
+        <div class="modulo-header">
+          <div class="num">3</div>
+          <h3>Portal de Clientes & Proveedores</h3>
+          <span class="modulo-tag">Diferenciador · Fase 2</span>
+        </div>
+        <div class="modulo-body">
+          <p class="modulo-desc">Portal self-service donde los clientes de Cotecna solicitan inspecciones, consultan el estado de sus pedidos y descargan certificados online. Del lado de proveedores y laboratorios socios, gestionan resultados y documentación directamente.</p>
+          <div class="modulo-relevancia">
+            <strong>Relevancia Cotecna:</strong> Clientes de exportación agropecuaria, minera o de bienes de consumo pueden seguir en tiempo real el estado de su certificación. Mejora la experiencia de cliente y reduce carga administrativa interna.
+          </div>
+          <div class="feat-list">
+            <span class="feat">Solicitud online de servicios</span>
+            <span class="feat">Seguimiento de estado</span>
+            <span class="feat">Descarga de certificados</span>
+            <span class="feat">Carga de resultados</span>
+            <span class="feat">Agenda de inspectores</span>
+            <span class="feat">Notificaciones automáticas</span>
+            <span class="feat">Historial documental</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modulo-card">
+        <div class="modulo-header">
+          <div class="num">4</div>
+          <h3>TOTVS Analytics by GoodData</h3>
+          <span class="modulo-tag">Visibilidad · Fase 2</span>
+        </div>
+        <div class="modulo-body">
+          <p class="modulo-desc">Dashboards ejecutivos para medir rentabilidad por unidad de negocio (Agricultura, Minerales, Alimentos, Certificación), volumen de inspecciones por región, tiempos de ciclo y cumplimiento de SLAs por cliente.</p>
+          <div class="modulo-relevancia">
+            <strong>Relevancia Cotecna:</strong> La dirección regional puede ver en tiempo real qué segmentos son más rentables, cuáles tienen mayor volumen y dónde hay desvíos de SLA, sin esperar reportes manuales.
+          </div>
+          <div class="feat-list">
+            <span class="feat">KPIs operativos</span>
+            <span class="feat">Rentabilidad por sector</span>
+            <span class="feat">Tiempos de ciclo</span>
+            <span class="feat">Volumen por geografía</span>
+            <span class="feat">Cumplimiento de SLAs</span>
+            <span class="feat">Reportes automáticos</span>
+            <span class="feat">Dashboard ejecutivo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modulo-card">
+        <div class="modulo-header">
+          <div class="num">5</div>
+          <h3>TOTVS RH 4.0 — Gestión de personas</h3>
+          <span class="modulo-tag">Complementario</span>
+        </div>
+        <div class="modulo-body">
+          <p class="modulo-desc">Con inspectores técnicos en campo y equipos en múltiples países, la gestión de legajos, liquidación de haberes, control de asistencia y capacitación es crítica. TOTVS RH 4.0 cubre el ciclo completo con app móvil para el personal en terreno.</p>
+          <div class="modulo-relevancia">
+            <strong>Relevancia Cotecna:</strong> Los inspectores de campo pueden gestionar su asistencia, órdenes de trabajo y capacitaciones desde la app móvil, sin necesidad de ir a la oficina.
+          </div>
+          <div class="feat-list">
+            <span class="feat">Liquidación de sueldos</span>
+            <span class="feat">Legajos digitales</span>
+            <span class="feat">Control de asistencia</span>
+            <span class="feat">App móvil</span>
+            <span class="feat">Gestión de capacitación</span>
+            <span class="feat">Multi-país LATAM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modulo-card">
+        <div class="modulo-header">
+          <div class="num">6</div>
+          <h3>CRM — Gestión comercial</h3>
+          <span class="modulo-tag alt">Futuro</span>
+        </div>
+        <div class="modulo-body">
+          <p class="modulo-desc">Gestión del pipeline comercial de Cotecna: seguimiento de oportunidades por vertical y país, historial de clientes, cotizaciones y renovaciones de contratos de inspección en una sola herramienta integrada al ERP.</p>
+          <div class="modulo-relevancia">
+            <strong>Relevancia Cotecna:</strong> Con servicios en múltiples industrias (Agricultura, Bienes de Consumo, Minerales, Alimentos), tener visibilidad comercial integrada acelera las renovaciones y detecta oportunidades de cross-selling.
+          </div>
+          <div class="feat-list">
+            <span class="feat">Pipeline por vertical</span>
+            <span class="feat">Historial de clientes</span>
+            <span class="feat">Cotizaciones integradas</span>
+            <span class="feat">Seguimiento de contratos</span>
+            <span class="feat">Alertas de renovación</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="bg-white">
+  <div class="container">
+    <div class="section-eyebrow">Plan de implementación</div>
+    <h2 class="section-title">Roadmap sugerido</h2>
+    <p class="section-desc">Un plan de implementación progresivo que minimiza el riesgo. Los tiempos son estimados de referencia y serán confirmados en el diagnóstico inicial con el equipo de Cotecna.</p>
+    <div class="roadmap">
+      <div class="fase">
+        <div class="fase-num">Fase 1 · Meses 1–6</div>
+        <h4>ERP Protheus Core</h4>
+        <p class="fase-dur">Go-live ERP en ~6 meses</p>
+        <ul>
+          <li>ERP Protheus: Finanzas, Compras, Stock</li>
+          <li>Facturación electrónica Argentina</li>
+          <li>Tesorería multi-moneda</li>
+          <li>Contabilidad y fiscal local</li>
+          <li>Capacitación usuarios clave</li>
+          <li>Go-live Argentina</li>
+        </ul>
+      </div>
+      <div class="fase" style="position:relative;">
+        <div class="fase-badge">⭐ Mayor impacto visible</div>
+        <div class="fase-num">Fase 2 · Meses 7–9</div>
+        <h4>TOTVS Fluig</h4>
+        <p class="fase-dur">Digitalización BPM en ~3 meses</p>
+        <ul>
+          <li>Flujos de aprobación de inspecciones</li>
+          <li>Digitalización de órdenes de servicio</li>
+          <li>Gestión documental de certificados</li>
+          <li>Firma electrónica</li>
+          <li>Integración Fluig ↔ ERP</li>
+        </ul>
+      </div>
+      <div class="fase">
+        <div class="fase-num">Fase 3 · Mes 10+</div>
+        <h4>Portal + Analytics + RH</h4>
+        <p class="fase-dur">Plataforma completa</p>
+        <ul>
+          <li>Portal de clientes y laboratorios</li>
+          <li>Analytics: KPIs y dashboards</li>
+          <li>TOTVS RH 4.0 + App móvil</li>
+          <li>CRM integrado al ERP</li>
+          <li>BI avanzado por segmento</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section bg-navy" id="porq">
+  <div class="container">
+    <div class="section-eyebrow" style="color:rgba(255,255,255,0.5);"><span style="background:rgba(255,255,255,0.3)"></span>¿Por qué TOTVS?</div>
+    <h2 class="section-title" style="color:#fff;">El respaldo detrás de la solución</h2>
+    <p class="section-desc" style="color:rgba(255,255,255,0.6);">TOTVS no es solo un proveedor de software — es la empresa de tecnología más grande de América Latina, con presencia probada en el sector de servicios e inspección.</p>
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div class="num">+30%</div>
+        <div class="lbl">market share ERP en Latinoamérica</div>
+      </div>
+      <div class="stat-box green">
+        <div class="num">23 años</div>
+        <div class="lbl">de presencia en Argentina desde 1997</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">USD 69M</div>
+        <div class="lbl">inversión anual en I+D e innovación</div>
+      </div>
+      <div class="stat-box green">
+        <div class="num">+500</div>
+        <div class="lbl">clientes activos en LATAM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASOS -->
+<section class="bg-gray" id="casos">
+  <div class="container">
+    <div class="section-eyebrow">Casos de referencia</div>
+    <h2 class="section-title">Clientes similares ya lo usan</h2>
+    <p class="section-desc">Empresas internacionales con operaciones multi-país, procesos técnicos complejos y equipos en campo — como Cotecna — ya confían en TOTVS implementado por Xperts.</p>
+    <div class="casos-grid">
+      <div class="caso-card">
+        <div class="co">Honeywell S.A.I.C.</div>
+        <div class="seg">Servicios industriales</div>
+        <p>Multinacional con operación en 8 países de LATAM (Argentina, Brasil, Chile, Uruguay, Perú, Colombia, Ecuador, Venezuela). ERP Protheus unificado.</p>
+        <div class="detail">
+          <span class="detail-chip">150 usuarios</span>
+          <span class="detail-chip">8 países</span>
+          <span class="detail-chip">Desde 2002</span>
+        </div>
+      </div>
+      <div class="caso-card">
+        <div class="co">Delta Compresión (Aspro)</div>
+        <div class="seg">Servicios técnicos globales</div>
+        <p>Empresa internacional presente en 45 países. ERP Protheus + Fluig + Analytics. Gestión de compras internacionales e inspección de calidad.</p>
+        <div class="detail">
+          <span class="detail-chip">100 usuarios</span>
+          <span class="detail-chip">45 países</span>
+          <span class="detail-chip">Fluig + BI</span>
+        </div>
+      </div>
+      <div class="caso-card">
+        <div class="co">Micro Automatización</div>
+        <div class="seg">Manufactura multi-país</div>
+        <p>Operación en Argentina, Chile y Brasil con ~100 usuarios. ERP Protheus + Analytics. Estructura de filiales muy similar a Cotecna LATAM.</p>
+        <div class="detail">
+          <span class="detail-chip">100 usuarios</span>
+          <span class="detail-chip">3 países</span>
+          <span class="detail-chip">Desde 2006</span>
+        </div>
+      </div>
+      <div class="caso-card">
+        <div class="co">Panalab S.A.</div>
+        <div class="seg">Calidad & Trazabilidad</div>
+        <p>Laboratorio con altos estándares de trazabilidad regulatoria. ERP + módulo de calidad. Procesos de control muy similares al core de Cotecna.</p>
+        <div class="detail">
+          <span class="detail-chip">50 usuarios</span>
+          <span class="detail-chip">Calidad regulatoria</span>
+          <span class="detail-chip">Desde 2017</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUÉ XPERTS -->
+<section class="bg-white">
+  <div class="container">
+    <div class="section-eyebrow">El socio tecnológico</div>
+    <h2 class="section-title">Por qué Xperts Consulting</h2>
+    <p class="section-desc">Empresa argentina especializada en implementación de soluciones TOTVS, con más de 25 años de experiencia en proyectos de transformación digital de empresas medianas y grandes en LATAM.</p>
+    <div class="porque-grid">
+      <div class="porque-card">
+        <div class="icon">🌎</div>
+        <h4>Experiencia en empresas globales con operación LATAM</h4>
+        <p>Hemos implementado TOTVS en empresas con filiales en múltiples países. Conocemos los desafíos de consolidar operaciones regionales manteniendo el compliance fiscal local de cada país.</p>
+      </div>
+      <div class="porque-card">
+        <div class="icon">🇦🇷</div>
+        <h4>Equipo local en Buenos Aires</h4>
+        <p>Base en Buenos Aires con capacidad de visitas presenciales, soporte on-site y reuniones de seguimiento en persona cuando el proyecto lo requiere. No somos una empresa remota.</p>
+      </div>
+      <div class="porque-card">
+        <div class="icon">🔒</div>
+        <h4>Seguridad y compliance internacional</h4>
+        <p>Infraestructura cloud certificada ISO 27.001. Cumplimiento con normativas de protección de datos empresariales. La información de Cotecna siempre protegida con estándares internacionales.</p>
+      </div>
+      <div class="porque-card">
+        <div class="icon">⚙️</div>
+        <h4>Sector de inspección y certificación</h4>
+        <p>Conocemos los procesos de trazabilidad, control de calidad, gestión documental y relación con laboratorios socios. La propuesta está diseñada desde el primer día para el negocio de Cotecna.</p>
+      </div>
+      <div class="porque-card">
+        <div class="icon">🤝</div>
+        <h4>Acompañamiento en toda la implementación</h4>
+        <p>Metodología de 5 etapas: Diagnóstico → Diseño → Configuración → Capacitación → Soporte. No implementamos y desaparecemos. El equipo de Xperts acompaña a Cotecna en cada fase.</p>
+      </div>
+      <div class="porque-card">
+        <div class="icon">🏆</div>
+        <h4>Partner oficial TOTVS en Argentina</h4>
+        <p>Certificación que garantiza que la implementación sigue los estándares más altos del fabricante. Acceso directo al soporte de TOTVS y a las actualizaciones del producto sin costo adicional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="bg-gray">
+  <div class="container">
+    <div class="section-eyebrow">Retorno de inversión</div>
+    <h2 class="section-title">Lo que gana Cotecna</h2>
+    <p class="section-desc">Beneficios concretos y medibles alineados con los objetivos operativos y comerciales de Cotecna en Argentina y la región.</p>
+    <div class="benef-list">
+      <div class="benef-item">
+        <div class="benef-num">01</div>
+        <div>
+          <h4>Ciclo de inspección completamente digital</h4>
+          <p>Desde que un cliente solicita una inspección hasta que recibe su certificado — todo en una plataforma digital. El inspector en campo usa la app móvil, el supervisor aprueba desde el portal, el cliente descarga el certificado online. Cero papel, cero correos, trazabilidad total.</p>
+        </div>
+      </div>
+      <div class="benef-item">
+        <div class="benef-num">02</div>
+        <div>
+          <h4>Visibilidad financiera regional en tiempo real</h4>
+          <p>La dirección regional de Cotecna puede ver en cualquier momento la rentabilidad por segmento (Agricultura, Minerales, Bienes de Consumo, Certificación) y por país, cuánto se facturó, qué cobros están pendientes y cómo está el cashflow consolidado de LATAM.</p>
+        </div>
+      </div>
+      <div class="benef-item">
+        <div class="benef-num">03</div>
+        <div>
+          <h4>Portal que diferencia a Cotecna en el mercado</h4>
+          <p>Los clientes de exportación agropecuaria, minera o industrial podrán solicitar inspecciones, seguir el estado de sus pedidos y bajar certificados online, 24/7, sin llamar a la oficina. Es un diferenciador concreto frente a competidores que siguen operando por teléfono y correo.</p>
+        </div>
+      </div>
+      <div class="benef-item">
+        <div class="benef-num">04</div>
+        <div>
+          <h4>Laboratorios y socios integrados sin fricción</h4>
+          <p>Los laboratorios socios de Cotecna (AGS, Fitosoil, Agrônomica y otros) cargarán resultados directamente en el portal, con trazabilidad completa de cada muestra y certificación. Se eliminan los intercambios manuales y los errores de transcripción.</p>
+        </div>
+      </div>
+      <div class="benef-item">
+        <div class="benef-num">05</div>
+        <div>
+          <h4>Cumplimiento de SLAs con alertas automáticas</h4>
+          <p>El sistema alerta automáticamente cuando una orden de inspección o certificación está en riesgo de incumplir el SLA comprometido con el cliente, permitiendo actuar de forma preventiva antes de que sea un problema.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <div class="cta-box">
+      <div style="font-size:36px; margin-bottom:1rem;">🚀</div>
+      <h2>¿Arrancamos con un diagnóstico sin costo?</h2>
+      <p>Mapeamos juntos los procesos operativos de Cotecna Argentina y diseñamos un roadmap de implementación a medida, sin compromiso. La primera reunión es exploratoria y el diagnóstico no tiene costo.</p>
+      <a href="mailto:rocio.pardo@xpertsconsulting.com" class="btn-primary" style="display:inline-flex; margin: 0 auto;">Solicitar diagnóstico gratuito →</a>
+      <div class="cta-contact">
+        <div class="contact-item">
+          <strong>Rocío Pardo</strong>
+          VP de Xperts Consulting
+        </div>
+        <div class="contact-item">
+          <strong>+54 11 3233-5747</strong>
+          WhatsApp disponible
+        </div>
+        <div class="contact-item">
+          <strong>Xperts Consulting S.A.</strong>
+          Partner oficial TOTVS Argentina
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">COTECNA × Xperts Consulting · Propuesta Comercial 2026</span>
+  <span>Rocío Pardo · rocio.pardo@xpertsconsulting.com · +54 11 3233-5747 · Xperts Consulting S.A.</span>
+</footer>
+
+
+<button class="pdf-btn" onclick="window.print()" title="Descargar propuesta en PDF">
+  ⬇ Descargar PDF
+</button>
+
+<script>
+  // Smooth active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) current = s.id; });
+    navLinks.forEach(a => {
+      a.style.background = a.getAttribute('href') === '#'+current ? 'rgba(0,200,150,0.25)' : '';
+      a.style.color = a.getAttribute('href') === '#'+current ? '#fff' : '';
+    });
+  });
+</script>
+
+</body>
+</html>
